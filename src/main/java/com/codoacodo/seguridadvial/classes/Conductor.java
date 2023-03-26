@@ -28,7 +28,7 @@ public class Conductor {
     }
 
     //Método para saber si un Conductor es seguro:
-    //TODO: Validar cuándo un conductor es seguro y cuándo no
+    //TODO: Validar si el Conductor tiene Licencia y si su Vehículo es seguro p/que sea conductor seguro
     public Boolean esSeguro(){
         //return true; //fuerzo a que me de true para el test
         return varEsSeguro; //el verdadero true o false va a estar dentro de esta variable
