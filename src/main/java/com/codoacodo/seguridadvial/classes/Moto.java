@@ -2,6 +2,7 @@ package com.codoacodo.seguridadvial.classes;
 
 public class Moto extends Vehiculo{
 
+    private Long idMoto;
     private Integer cantEspejos;
     private Boolean motoSegura;
 

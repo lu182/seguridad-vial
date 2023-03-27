@@ -11,7 +11,7 @@ public class ConductorTest {
 
     @Before
     public void setUp(){
-        conductor = new Conductor("Luciana", "Fernandez", true); //debo crear contructor con estos parámetros
+        conductor = new Conductor("Luciana", "Fernandez"); //debo crear contructor con estos parámetros
     }
 
     //TEST UNITARIOS:
@@ -36,10 +36,20 @@ public class ConductorTest {
         Assert.assertEquals("Delfina", conductor.getNombre());
     }
 
+    //TODO: Hacer validación en método esSeguro() de la clase Conductor - Test falla falta Refactor
     @Test
     @DisplayName("Probamos si un Conductor es seguro")
     public void testConductorEsSeguro(){
         Boolean conductorSeguro = conductor.esSeguro();
         Assert.assertTrue(conductorSeguro);
     }
+
+    @Test
+    @DisplayName("Probamos si un Conductor tiene Licencia")
+    public void testConductorTieneLicencia(){
+        Boolean conductorTieneLicencia = conductor.tieneLicencia();
+        Assert.assertTrue(conductorTieneLicencia);
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.codoacodo.seguridadvial.classes;
 
 public class Auto extends Vehiculo{
 
+    private Long idAuto;
     private Boolean tieneRuedaAux;
     private Boolean autoSeguro;
 

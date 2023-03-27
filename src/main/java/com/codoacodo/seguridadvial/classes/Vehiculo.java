@@ -1,6 +1,7 @@
 package com.codoacodo.seguridadvial.classes;
 
 public class Vehiculo {
+    private Long idVehiculo;
     private String marca;
     private String patente;
     private String modelo;
