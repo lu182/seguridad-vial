@@ -7,11 +7,18 @@ import org.junit.jupiter.api.DisplayName;
 
 public class MotoTest {
 
+    private TipoLicencia tipoLicenciaMoto;
+    private Licencia licenciaMoto;
     private Moto moto;
+    private Conductor conductorConMoto;
 
     @Before
     public void setUp(){
-        moto = new Moto(1L,2,1L,"Honda", "AGH123", "Wave", "Azul", 2018, 120, 140);
+        tipoLicenciaMoto = new TipoLicencia(1L, "A", "1.2",5);
+        licenciaMoto = new Licencia(3L,"11/02/2020", "11/02/2025", tipoLicenciaMoto);
+        moto = new Moto(1L,2, "150cc","11kw", 1L,"Honda", "AGH123", "Wave", "Azul", 2018, 120, 160);
+        conductorConMoto = new Conductor(2L,"Mark", "Hoppus", "15/03/1972", 24544852, licenciaMoto, moto);
+
     }
 
     //TEST UNITARIOS:

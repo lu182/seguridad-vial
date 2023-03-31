@@ -14,9 +14,7 @@ public class Conductor {
     private Auto auto; //1 Conductor puede tener un Auto(y no más que uno)
     private Moto moto; //1 Conductor puede tener una Moto
 
-
-    public Conductor() {
-    }
+    public Conductor(){}
 
     //Constructor para un Conductor con Auto:
     public Conductor(Long idConductor, String nombre, String apellido, String fechaNac, Integer dni, Licencia licencia, Auto auto) {
@@ -107,15 +105,29 @@ public class Conductor {
     }
 
     //MÉTODOS:
-    //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo (auto o moto) es seguro
-    public Boolean esConductorSeguro() {
-        //Valido si tiene licencia y si su vehiculo (auto o moto) es seguro
-        if ((licencia == null && !auto.autoSeguro()) || (licencia == null && !moto.motoSegura())) {
-            return false;
-        } else {
+    //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo moto es segura
+    public Boolean esConductorMotoSeguro() {
+        //TODO: Manejar excepcion NullPointerException
+        //Valido si tiene licencia y si su vehiculo moto es segura
+        if(licencia != null && moto.motoSegura()) {
             return true;
+        }else{
+            return false;
         }
     }
+
+    //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo auto es seguro
+    public Boolean esConductorAutoSeguro() {
+        //TODO: Manejar excepcion NullPointerException
+        //Valido si tiene licencia y si su vehiculo auto es seguro
+        if(licencia != null && auto.autoSeguro()) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    //if((licencia != null && auto.autoSeguro()) || (licencia != null && moto.motoSegura()))
 
     //Método para formatear fecha:
     public Date formatearFecha(String fechaStr) {

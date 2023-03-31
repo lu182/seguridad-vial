@@ -13,12 +13,32 @@ public class Auto extends Vehiculo{
         this.tieneRuedaAux = tieneRuedaAux;
     }
 
+    public Auto(){}
+
+    //GETTERS & SETTERS:
+    public Long getIdAuto() {
+        return idAuto;
+    }
+
+    public void setIdAuto(Long idAuto) {
+        this.idAuto = idAuto;
+    }
+
+    public Boolean getTieneRuedaAux() {
+        return tieneRuedaAux;
+    }
+
+    public void setTieneRuedaAux(Boolean tieneRuedaAux) {
+        this.tieneRuedaAux = tieneRuedaAux;
+    }
+
     //Método para saber si un Auto es seguro dependiedo si tiene ruedaAux y no supera los 140Km/h (velocidad final):
     public Boolean autoSeguro(){
-        if(!this.tieneRuedaAux && !vehiculoSeguro()) {
-            return false;
-        }else{
+        //TODO: Manejar excepcion NullPointerException
+        if(tieneRuedaAux != null && vehiculoSeguro()) {
             return true;
+        }else{
+            return false;
         }
     }
 }
