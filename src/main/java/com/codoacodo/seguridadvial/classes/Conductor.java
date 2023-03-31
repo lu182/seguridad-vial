@@ -1,25 +1,52 @@
 package com.codoacodo.seguridadvial.classes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Conductor {
 
     private Long idConductor;
     private String nombre;
     private String apellido;
+    private Date fechaNac;
     private Integer dni;
-    private Boolean varEsSeguro;
-    private Auto auto;
-    private Moto moto;
     private Licencia licencia;
+    private Auto auto; //1 Conductor puede tener un Auto(y no más que uno)
+    private Moto moto; //1 Conductor puede tener una Moto
 
 
     public Conductor() {
     }
 
-    public Conductor(String nombre, String apellido){
+    //Constructor para un Conductor con Auto:
+    public Conductor(Long idConductor, String nombre, String apellido, String fechaNac, Integer dni, Licencia licencia, Auto auto) {
+        this.idConductor = idConductor;
         this.nombre = nombre;
         this.apellido = apellido;
-        //this.licencia = false;???
-        this.varEsSeguro = false;
+        this.fechaNac = formatearFecha(fechaNac);
+        this.dni = dni;
+        this.licencia = licencia;
+        this.auto = auto;
+    }
+
+    //Constructor para un Conductor con Moto:
+    public Conductor(Long idConductor, String nombre, String apellido, String fechaNac, Integer dni, Licencia licencia, Moto moto) {
+        this.idConductor = idConductor;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNac = formatearFecha(fechaNac);
+        this.dni = dni;
+        this.licencia = licencia;
+        this.moto = moto;
+    }
+
+    //GETTERS & SETTERS:
+    public Long getIdConductor() {
+        return idConductor;
+    }
+
+    public void setIdConductor(Long idConductor) {
+        this.idConductor = idConductor;
     }
 
     public String getNombre(){
@@ -28,19 +55,78 @@ public class Conductor {
     }
 
     public void setNombre(String nombre){
-
         this.nombre = nombre;
     }
 
-    //Método para saber si un Conductor es seguro:
-    //TODO: Validar si el Conductor tiene Licencia y si su Vehículo es seguro p/que sea conductor seguro
-    public Boolean esSeguro(){
-        //return true; //fuerzo a que me de true para el test
-        return varEsSeguro; //el verdadero true o false va a estar dentro de esta variable
+    public String getApellido() {
+        return apellido;
     }
 
-    //Método para saber si un conductor tiene licencia??????????:
-    public Boolean tieneLicencia(){
-        return false;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
+
+    public Date getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public Integer getDni() {
+        return dni;
+    }
+
+    public void setDni(Integer dni) {
+        this.dni = dni;
+    }
+
+    public Licencia getLicencia() {
+        return licencia;
+    }
+
+    public void setLicencia(Licencia licencia) {
+        this.licencia = licencia;
+    }
+
+    public Auto getAuto() {
+        return auto;
+    }
+
+    public void setAuto(Auto auto) {
+        this.auto = auto;
+    }
+
+    public Moto getMoto() {
+        return moto;
+    }
+
+    public void setMoto(Moto moto) {
+        this.moto = moto;
+    }
+
+    //MÉTODOS:
+    //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo (auto o moto) es seguro
+    public Boolean esConductorSeguro() {
+        //Valido si tiene licencia y si su vehiculo (auto o moto) es seguro
+        if ((licencia == null && !auto.autoSeguro()) || (licencia == null && !moto.motoSegura())) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //Método para formatear fecha:
+    public Date formatearFecha(String fechaStr) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date fecha = formatter.parse(fechaStr);
+            return fecha;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

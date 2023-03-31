@@ -9,4 +9,11 @@ public class TipoLicencia {
 
     public TipoLicencia() {
     }
+
+    public TipoLicencia(Long idTipoLicencia, String clase, String subclase, Integer vigenciaMax) {
+        this.idTipoLicencia = idTipoLicencia;
+        this.clase = clase;
+        this.subclase = subclase;
+        this.vigenciaMax = vigenciaMax;
+    }
 }

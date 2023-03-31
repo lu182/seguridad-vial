@@ -11,7 +11,7 @@ public class MotoTest {
 
     @Before
     public void setUp(){
-        moto = new Moto(2, 120);
+        moto = new Moto(1L,2,1L,"Honda", "AGH123", "Wave", "Azul", 2018, 120, 140);
     }
 
     //TEST UNITARIOS:
@@ -24,6 +24,6 @@ public class MotoTest {
     @Test
     @DisplayName("Probamos si una Moto es segura")
     public void testMotoesSegura(){
-        Assert.assertTrue(moto.esSegura());
+        Assert.assertTrue(moto.motoSegura());
     }
 }

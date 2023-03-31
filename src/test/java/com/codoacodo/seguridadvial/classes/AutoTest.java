@@ -11,7 +11,7 @@ public class AutoTest {
 
     @Before
     public void setUp(){
-        auto = new Auto(true, 100);
+        auto = new Auto(1L, true, 1L, "Fiat", "ABD120", "Cronos", "Rojo", 2019, 100, 180);
     }
 
     //TEST UNITARIOS:
@@ -24,7 +24,7 @@ public class AutoTest {
     @Test
     @DisplayName("Probamos si un Auto es seguro")
     public void testAutoesSeguro(){
-        Assert.assertTrue(auto.esSeguro());
+        Assert.assertTrue(auto.autoSeguro());
     }
 
 }
