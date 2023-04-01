@@ -55,12 +55,22 @@ public class Moto extends Vehiculo{
 
     //Método p/saber si una Moto es segura dependiendo si tiene 2 espejos como min. y no supera los 160Km/h (velocidad final):
     public Boolean motoSegura(){
-        //TODO: Manejar excepcion NullPointerException
-        if(cantEspejos >= 2 && vehiculoMotoSeguro()){
-            return true;
-        }else{
+        try {
+            if(cantEspejos == null){
+                throw new NullPointerException("La propiedad cantEspejos es null");
+            }else if(cantEspejos >= 2 && vehiculoMotoSeguro()){
+                System.out.println("La moto es segura");
+                return true;
+            }else{
+                throw new Exception("La moto no tiene 2 espejos como mínimo o no es un vehículo seguro");
+            }
+        }catch(NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }catch (Exception e) {
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
             return false;
         }
-
     }
+
 }

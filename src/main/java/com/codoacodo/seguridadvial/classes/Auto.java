@@ -41,7 +41,7 @@ public class Auto extends Vehiculo{
                 System.out.println("El Auto es seguro");
                 return true;
             }else{
-                throw new Exception("El vehículo no tiene rueda de auxilio o no es un vehículo seguro");
+                throw new Exception("El auto no tiene rueda de auxilio o no es un vehículo seguro");
             }
             }catch(NullPointerException e){
                 System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
