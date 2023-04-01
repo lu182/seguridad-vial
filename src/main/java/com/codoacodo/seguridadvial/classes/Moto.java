@@ -56,7 +56,7 @@ public class Moto extends Vehiculo{
     //Método p/saber si una Moto es segura dependiendo si tiene 2 espejos como min. y no supera los 160Km/h (velocidad final):
     public Boolean motoSegura(){
         //TODO: Manejar excepcion NullPointerException
-        if(cantEspejos >= 2 && vehiculoSeguro()){
+        if(cantEspejos >= 2 && vehiculoMotoSeguro()){
             return true;
         }else{
             return false;

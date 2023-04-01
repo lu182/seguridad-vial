@@ -92,15 +92,39 @@ public class Vehiculo {
         this.velocidadFinal = velocidadFinal;
     }
 
-    //Método para saber si es un vehiculo seguro:
-    public Boolean vehiculoSeguro(){
+    //Método para saber si el vehiculo auto es seguro:
+    public Boolean vehiculoAutoSeguro(){
         try {
-            if((velocidadFinal <= 140) || (velocidadFinal <= 160 )){
+            if(velocidadFinal == null) {
+                throw new NullPointerException("La propiedad velocidadFinal es null");
+            }else if(velocidadFinal <= 140){
                 return true;
             }else{
-                return false;
+                throw new Exception("El vehículo auto no es un vehículo seguro");
+            }
+        }catch(NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }catch (Exception e) {
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }
+
+    }
+    //Método para saber si es un vehiculo seguro:
+    public Boolean vehiculoMotoSeguro(){
+        try {
+            if(velocidadFinal == null){
+                throw new NullPointerException("La propiedad velocidadFinal es null");
+            }else if(velocidadFinal <= 160){
+                return true;
+            }else{
+                throw new Exception("El vehículo moto no es un vehículo seguro");
             }
         }catch (NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }catch (Exception e) {
             System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
             return false;
         }
