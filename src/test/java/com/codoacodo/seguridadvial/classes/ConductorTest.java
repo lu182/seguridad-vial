@@ -68,13 +68,13 @@ public class ConductorTest {
         Assert.assertTrue(conductorSeguro);
     }
 
-    @Test
+    @Test//(expected = NullPointerException.class)
     @DisplayName("Probamos si un Conductor de auto tiene Licencia")
     public void testConductorAutoTieneLicencia(){
         Assert.assertNotNull(conductorConAuto.getLicencia());
     }
 
-    @Test
+    @Test//(expected = NullPointerException.class)
     @DisplayName("Probamos si un Conductor de moto tiene Licencia")
     public void testConductorMotoTieneLicencia(){
         Assert.assertNotNull(conductorConMoto.getLicencia());

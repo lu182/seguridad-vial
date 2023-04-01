@@ -49,6 +49,12 @@ public class Conductor {
 
     public String getNombre(){
         //return "Luciana";
+        if (nombre == null){
+            throw new NullPointerException("La propiedad nombre es null");
+        }
+        if(nombre.isEmpty()){
+            throw new IllegalArgumentException("Debe ser un nombre válido");
+        }
         return nombre;
     }
 
@@ -81,6 +87,9 @@ public class Conductor {
     }
 
     public Licencia getLicencia() {
+        if(licencia == null){
+            throw new NullPointerException("La propiedad licencia es null");
+        }
         return licencia;
     }
 
@@ -107,27 +116,46 @@ public class Conductor {
     //MÉTODOS:
     //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo moto es segura
     public Boolean esConductorMotoSeguro() {
-        //TODO: Manejar excepcion NullPointerException
         //Valido si tiene licencia y si su vehiculo moto es segura
-        if(licencia != null && moto.motoSegura()) {
-            return true;
-        }else{
+        try {
+            if(licencia == null){
+                throw new NullPointerException("La propiedad licencia es null");
+            }else if(licencia != null && moto.motoSegura()) {
+                System.out.println("Es conductor seguro");
+                return true;
+            }else{
+                throw new Exception("No es conductor seguro. No tiene licencia o su vehiculo moto no es segura");
+            }
+        }catch(NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }catch (Exception e) {
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
             return false;
         }
     }
 
     //Método p/saber si es conductor seguro dependiendo si tiene licencia o no y si su vehiculo auto es seguro
     public Boolean esConductorAutoSeguro() {
-        //TODO: Manejar excepcion NullPointerException
         //Valido si tiene licencia y si su vehiculo auto es seguro
-        if(licencia != null && auto.autoSeguro()) {
-            return true;
-        }else{
+        try {
+            if(licencia == null){
+                throw new NullPointerException("La propiedad licencia es null");
+            }else if(licencia != null && auto.autoSeguro()) {
+                System.out.println("Es conductor seguro");
+                return true;
+            }else{
+                throw new Exception("No es conductor seguro. No tiene licencia o su vehiculo auto no es seguro");
+            }
+        }catch(NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+            return false;
+        }catch (Exception e) {
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
             return false;
         }
-    }
 
-    //if((licencia != null && auto.autoSeguro()) || (licencia != null && moto.motoSegura()))
+    }
 
     //Método para formatear fecha:
     public Date formatearFecha(String fechaStr) {

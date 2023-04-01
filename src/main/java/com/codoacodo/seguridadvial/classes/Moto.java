@@ -59,7 +59,6 @@ public class Moto extends Vehiculo{
             if(cantEspejos == null){
                 throw new NullPointerException("La propiedad cantEspejos es null");
             }else if(cantEspejos >= 2 && vehiculoMotoSeguro()){
-                System.out.println("La moto es segura");
                 return true;
             }else{
                 throw new Exception("La moto no tiene 2 espejos como mínimo o no es un vehículo seguro");

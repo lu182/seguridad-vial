@@ -38,7 +38,6 @@ public class Auto extends Vehiculo{
             if (tieneRuedaAux == null) {
                 throw new NullPointerException("La propiedad tieneRuedaAux es null");
             }else if(tieneRuedaAux && vehiculoAutoSeguro()){
-                System.out.println("El Auto es seguro");
                 return true;
             }else{
                 throw new Exception("El auto no tiene rueda de auxilio o no es un vehículo seguro");
