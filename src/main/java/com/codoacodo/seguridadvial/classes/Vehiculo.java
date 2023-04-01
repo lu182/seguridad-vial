@@ -94,10 +94,14 @@ public class Vehiculo {
 
     //Método para saber si es un vehiculo seguro:
     public Boolean vehiculoSeguro(){
-        //TODO: Manejar excepcion NullPointerException
-        if((velocidadFinal <= 140) || (velocidadFinal <= 160 )){
-            return true;
-        }else{
+        try {
+            if((velocidadFinal <= 140) || (velocidadFinal <= 160 )){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (NullPointerException e){
+            System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
             return false;
         }
     }

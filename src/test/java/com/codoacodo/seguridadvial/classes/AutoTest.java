@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.mockito.internal.matchers.Null;
 
 public class AutoTest {
 
@@ -31,6 +32,7 @@ public class AutoTest {
     @Test
     @DisplayName("Probamos si un Auto es seguro")
     public void testAutoesSeguro(){
+
         Assert.assertTrue(auto.autoSeguro());
     }
 

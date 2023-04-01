@@ -34,11 +34,22 @@ public class Auto extends Vehiculo{
 
     //Método para saber si un Auto es seguro dependiedo si tiene ruedaAux y no supera los 140Km/h (velocidad final):
     public Boolean autoSeguro(){
-        //TODO: Manejar excepcion NullPointerException
-        if(tieneRuedaAux != null && vehiculoSeguro()) {
-            return true;
-        }else{
-            return false;
-        }
+        try {
+            if (tieneRuedaAux == null) {
+                throw new NullPointerException("La propiedad tieneRuedaAux es null");
+            }else if(tieneRuedaAux && vehiculoSeguro()){
+                System.out.println("El Auto es seguro");
+                return true;
+            }else{
+                throw new Exception("El vehículo no tiene rueda de auxilio o no es un vehículo seguro");
+            }
+            }catch(NullPointerException e){
+                System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+                return false;
+            }catch (Exception e) {
+                System.out.println("Se produjo una excepción --> Clase: " + e.getClass().getCanonicalName() + ", Mensaje: " + e.getMessage());
+                return false;
+            }
     }
+
 }
